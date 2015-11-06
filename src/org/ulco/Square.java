@@ -1,6 +1,7 @@
 package org.ulco;
 
 public class Square extends GraphicsObject {
+
     public Square(Point center, double length) {
         this.m_origin = center;
         this.m_length = length;

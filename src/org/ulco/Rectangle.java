@@ -1,6 +1,7 @@
 package org.ulco;
 
 public class Rectangle extends GraphicsObject {
+
     public Rectangle(Point center, double height, double width) {
         this.m_origin = center;
         this.m_height = height;

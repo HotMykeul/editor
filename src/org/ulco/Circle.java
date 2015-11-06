@@ -1,6 +1,9 @@
 package org.ulco;
 
 public class Circle extends GraphicsObject {
+    private final Point m_center;
+    private final double m_radius;
+
     public Circle(Point center, double radius) {
         this.m_center = center;
         this.m_radius = radius;
@@ -20,14 +23,18 @@ public class Circle extends GraphicsObject {
         return new Circle(m_center.copy(), m_radius);
     }
 
-    public Point getCenter() { return m_center; }
+    public Point getCenter() {
+        return m_center;
+    }
 
     public boolean isClosed(Point pt, double distance) {
         return Math.sqrt((m_center.getX() - pt.getX()) * (m_center.getX() - pt.getX()) +
                 ((m_center.getY() - pt.getY()) * (m_center.getY() - pt.getY()))) <= distance;
     }
 
-    void move(Point delta) { m_center.move(delta); }
+    void move(Point delta) {
+        m_center.move(delta);
+    }
 
     public String toJson() {
         return "{ type: circle, center: " + m_center.toJson() + ", radius: " + this.m_radius + " }";
@@ -37,6 +44,4 @@ public class Circle extends GraphicsObject {
         return "circle[" + m_center.toString() + "," + m_radius + "]";
     }
 
-    private final Point m_center;
-    private final double m_radius;
 }
