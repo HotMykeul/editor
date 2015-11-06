@@ -1,6 +1,8 @@
 package org.ulco;
 
 abstract public class GraphicsObject {
+    private int m_ID;
+
     public GraphicsObject() {
         m_ID = ++ID.ID;
     }
@@ -19,5 +21,4 @@ abstract public class GraphicsObject {
 
     abstract public String toString();
 
-    private int m_ID;
 }
