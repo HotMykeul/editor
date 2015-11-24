@@ -147,19 +147,24 @@ public class Group extends GraphicsObject{
 
     public String toString() {
         String str = "group[[";
-        boolean have_groups = false;
 
-        for (int i = 0; i < m_objectList.size(); ++i) {
+        for (int i = 0; i < m_objectList.size(); i++) {
             GraphicsObject element = m_objectList.elementAt(i);
-
-            str += element.toString();
-            if (i < m_objectList.size() - 1) {
-                str += ", ";
+            if (!(element instanceof Group)) {
+                if (!str.equals("group[[")) {
+                    str += ", ";
+                }
+                str += element.toString();
             }
-            if(m_objectList.elementAt(i) instanceof Group) have_groups = true;
         }
-        if(have_groups) return str + "]]";
-        else return str + "],[]]";
+        str += "],[";
+        for (int i = 0; i < m_objectList.size(); i++) {
+            GraphicsObject element = m_objectList.elementAt(i);
+            if (element instanceof Group) {
+                str += element.toString();
+            }
+        }
+        return str + "]]";
     }
 
 }

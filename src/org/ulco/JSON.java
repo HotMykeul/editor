@@ -31,4 +31,5 @@ public class JSON {
     static public Document parseDocument(String json) {
         return new Document(json);
     }
+
 }
