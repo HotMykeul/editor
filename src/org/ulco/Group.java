@@ -1,5 +1,7 @@
 package org.ulco;
 
+import com.sun.corba.se.impl.orbutil.graph.Graph;
+
 import java.util.Vector;
 
 public class Group extends GraphicsObject{
@@ -42,7 +44,10 @@ public class Group extends GraphicsObject{
 
     @Override
     boolean isClosed(Point pt, double distance) {
-        return false;
+        for(GraphicsObject go : m_objectList){
+            if(!(go.isClosed(pt, distance))) return false;
+        }
+        return true;
     }
 
     public void move(Point delta) {
@@ -165,6 +170,10 @@ public class Group extends GraphicsObject{
             }
         }
         return str + "]]";
+    }
+
+    public Vector<GraphicsObject> getAllObjects(){
+        return m_objectList;
     }
 
 }

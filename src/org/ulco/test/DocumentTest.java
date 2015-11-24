@@ -3,6 +3,8 @@ package org.ulco.test;
 import junit.framework.TestCase;
 import org.ulco.*;
 
+import java.util.Vector;
+
 public class DocumentTest extends TestCase {
 
     public void testSelect() throws Exception {
@@ -75,5 +77,19 @@ public class DocumentTest extends TestCase {
 
     public void testConstructorCircle() throws Exception {
         assertEquals(new Document(new Point(0,0), 4, 3., 4.).getObjectNumber(), 4);
+    }
+
+    public void testSelectTask6() throws Exception {
+        Document document = new Document();
+        Square s = new Square(new Point(0, 0), 5);
+        Circle c = new Circle(new Point(5, 5), 4);
+        Group g = new Group();
+        Layer layer = document.createLayer();
+        g.add(s);
+        g.add(c);
+        layer.add(g);
+        assertEquals(Utils.select(new Point(1, 1), 8, document).size(), 2);
+        layer.add(new Circle(new Point(12,12), 1));
+        assertEquals(Utils.select(new Point(1, 1), 8, document).size(), 2);
     }
 }

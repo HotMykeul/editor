@@ -13,6 +13,7 @@ public class LayerTest extends TestCase {
 
         assertEquals(layer.getID(), oldID + 1);
         assertEquals(layer.get(0).getID(), oldID + 2);
+
     }
 
     public void testJSON() throws Exception {
