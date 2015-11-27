@@ -7,7 +7,7 @@ import java.util.Vector;
  */
 public class Builder {
 
-    public Document createSquares(Point origin, int line, int column, double length) {
+    public Document createDocument(Point origin, int line, int column, double length) {
         Document doc = new Document();
 
         Layer layer = doc.createLayer();
@@ -20,7 +20,7 @@ public class Builder {
         return doc;
     }
 
-    public Document createCircles(Point center, int number, double radius, double delta) {
+    public Document createDocument(Point center, int number, double radius, double delta) {
         Document doc = new Document();
 
         Layer layer = doc.createLayer();
