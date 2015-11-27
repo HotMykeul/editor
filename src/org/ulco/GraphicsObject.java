@@ -2,6 +2,7 @@ package org.ulco;
 
 abstract public class GraphicsObject {
     private int m_ID;
+    private String color;
 
     public GraphicsObject() {
         m_ID = ID.getInstance().getID();
