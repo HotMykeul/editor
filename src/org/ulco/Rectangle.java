@@ -1,6 +1,13 @@
 package org.ulco;
 
 public class Rectangle extends GraphicsObject {
+    protected Point m_origin;
+    protected double m_height;
+    protected double m_width;
+
+    public Rectangle(){
+
+    }
 
     public Rectangle(Point center, double height, double width) {
         this.m_origin = center;
@@ -43,7 +50,5 @@ public class Rectangle extends GraphicsObject {
         return "rectangle[" + m_origin.toString() + "," + m_height + "," + m_width + "]";
     }
 
-    private final Point m_origin;
-    private final double m_height;
-    private final double m_width;
+
 }
