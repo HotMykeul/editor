@@ -22,5 +22,4 @@ abstract public class GraphicsObject {
 
     abstract public String toString();
 
-
 }
